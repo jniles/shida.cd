@@ -1,7 +1,7 @@
 .last-job {
     height: 150px;
     background-color: $brand-color;
-    color: #fff;
+    color: #fff !important;
     @include clearfix;
     position: relative;
 

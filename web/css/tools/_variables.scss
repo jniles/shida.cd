@@ -1,12 +1,19 @@
 // colors
-$brand-color: #fb6648;
-$dark-color: #354458;
-$blue-color: #0dc9f7;
+// $brand-color: #fb6648;
+// $dark-color: #354458;
+// $blue-color: #0dc9f7;
+// $grey-color: #f8f8f8;
+
+$brand-color: #2196F3;
+$dark-color: #607D8B;
+$blue-color: #2ecc71;
 $grey-color: #f8f8f8;
+
+
 
 // fonts and text
 $base-font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-$secondary-font-family: 'Raleway', sans-serif;
+$secondary-font-family: $base-font-family;
 $base-font-size: 15px;
 $base-line-height: 1.7;
 $defautl-text-color: $dark-color;

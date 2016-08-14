@@ -9,8 +9,8 @@
             {{ vm.pageTitle|default('trouvez un travail rapidement | lerecruteur.cd') }}
         {% endblock %}
     </title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
+    {# <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> #}
+    {# <link href='https://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'> #}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -101,32 +101,6 @@
     <div class="clearfix"></div>
 
     <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-md-4">
-                    <h3>RACONTEZ-NOUS VOTRE HISTOIRE</h3>
-
-                    <p>
-                        Créez votre profil en quelques secondes et soyez sélectionné pour être présenté à l'ensemble de nos clients.
-                    </p>
-                </div>
-                <div class="col-xs-12 col-md-4">
-                    <h3>RECEVEZ DES PROPOSITIONS D'ENTRETIEN</h3>
-
-                    Nos entreprises clientes vous proposent de vous rencontrer en mentionnant une fourchette de salaire et les stock options dont vous pouvez bénéficier.
-                </div>
-
-                <div class="col-xs-12 col-md-4">
-                    <h3><img width="80px" src="{{ asset('img/logo-outline-2.png') }}" alt=""> &nbsp;&nbsp; LE RECRUTEUR</h3>
-
-
-                </div>
-
-                <div class="col-xs-12">
-                    <p><a class="footer__mailto" href="mailto:contact@lerecruteur.cd">contact@lerecruteur.cd</a></p>
-                </div>
-            </div>
-        </div>
     </footer>
 
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>

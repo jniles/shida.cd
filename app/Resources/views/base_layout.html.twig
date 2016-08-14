@@ -3,8 +3,7 @@
 {% block body %}
     <nav id="standard-menu" class="standard-menu">
         <a href="{{ path('pages_index') }}" class="menu__logo">
-            <img src="{{ asset('img/logo-outline.png') }}" alt="Logo le Recruteur">
-            <span>Le Recruteur</span>
+            <span>Shida.cd</span>
         </a>
 
         <div class="menu__items">
@@ -20,7 +19,7 @@
             <span class="c"></span>
         </a>
         {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-            <a href="{{ path('fos_user_security_login') }}" class="button button--login">se connecter</a>
+            <a href="{{ path('fos_user_security_login') }}" class="button button--success button--login">se connecter</a>
         {% else %}
             {# <a id="user__container" href="#" class="user__container as-notifications"> #}
             <a id="user__container" href="#" class="user__container">

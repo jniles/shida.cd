@@ -7,8 +7,7 @@
 {% block body %}
     <nav id="base-menu" class="menu">
         <a href="{{ path('pages_index') }}" class="menu__logo">
-            <img src="{{ asset('img/logo-outline.png') }}" alt="Logo le Recruteur">
-            <span>Le Recruteur</span>
+            <span>Shida.cd</span>
         </a>
 
         <div class="menu__items">
@@ -100,12 +99,6 @@
                 <input type="text" placeholder="votre adresse email" class="form-control form-control--rounded form-control-collapse">
                 <button class="button button--collapse" type="submit">Envoyer</button>
             </div>
-
-            <div style="margin-top:60px">
-                <img width="100%" height="auto" src="{{ asset('img/lerecruteur-2.jpg') }}" alt="">
-                <p>Les meilleures opportunités viennent à vous.</p>
-            </div>
-
         </div>
     </section>
     {{ knp_pagination_render(pagination) }}

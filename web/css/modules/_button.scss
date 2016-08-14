@@ -1,21 +1,25 @@
 .button {
-    border: none;
-    height: 40px;
-    line-height: 40px;
-    color: #fff;
-    background-color: $brand-color;
-    display: inline-block;
+    @extend .btn;
+    @extend .btn-primary;
 
-    font-family: $secondary-font-family;
-    font-weight: 700;
-    font-size: 14px;
+    // border: none;
+    // height: 40px;
+    // line-height: 40px;
+    // color: #fff;
+    // background-color: $brand-color;
+    // display: inline-block;
+
+    // font-family: $secondary-font-family;
+    // font-weight: 700;
+    // font-size: 14px;
+    // text-decoration: none;
+
+    // padding: 0 20px;
+    // border-radius: 20px;
+    // transition: all .3s;
+
+    // @extend %box-shadow;
     text-decoration: none;
-
-    padding: 0 20px;
-    border-radius: 20px;
-    transition: all .3s;
-
-    @extend %box-shadow;
 
     &:hover {
         transition: all .3s;

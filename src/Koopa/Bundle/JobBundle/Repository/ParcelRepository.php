@@ -23,9 +23,8 @@ class ParcelRepository extends \Doctrine\ORM\EntityRepository
     {
         $query = $this->_em
             ->createQuery(
-                "SELECT p, u, a
+                "SELECT p
                 FROM KoopaJobBundle:Parcel p
-                LEFT JOIN p.author u
                 WHERE p.author = :userId
                 ORDER BY p.id ASC"
             )->setParameters(array(

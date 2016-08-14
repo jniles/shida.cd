@@ -59,7 +59,8 @@
 }
 
 .menu--colored {
-    background-color: rgba($dark-color, .98);
+    background-color: rgba($brand-color, .98);
+    @extend %box-shadow;
 
     .menu__logo {
         img {
@@ -205,10 +206,8 @@ a.base-menu__side-start {
     display: none;
 
     @media only screen and (min-width: 768px) {
-        font-size: 11px;
-        text-transform: uppercase;
-        border: 2px solid #fff;
-        background-color: transparent;
+        // font-size: 11px;
+        // text-transform: uppercase;
         display: block;
         margin: 10px 15px 0 15px;
         float: right;

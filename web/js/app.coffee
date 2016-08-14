@@ -4,6 +4,7 @@ window.jQuery = window.$ = require './../bower_components/jquery/dist/jquery.min
 
 require './../bower_components/imgLiquid/js/imgLiquid-min.js'
 require './select2/select2.js'
+require './../node_modules/devbridge-autocomplete/dist/jquery.autocomplete.js'
 
 # uitils functions
 utils = require './utils.coffee'
