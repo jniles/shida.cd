@@ -1,0 +1,40 @@
+{% set sidebar_menu_active = 'locations' %}
+
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_admin.html.twig' %}
+
+{% block body %}
+    <header class="header header--min">
+        <div class="container">
+            <div class="g-content-container">
+                <h2>les localisations</h2>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+
+        <div class="container container--min">
+            {{ form_start(form, {'attr': {'id': 'form-job-location'}}) }}
+                <div class="form-group">
+                    {{ form_label(form.country, 'Pays') }}
+                    {{ form_widget(form.country, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.country) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.town, 'Ville') }}
+                    {{ form_widget(form.town, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.town) }}
+                </div>
+
+                {{ form_rest(form) }}
+
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Enregistrer</button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,18 @@
+services:
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
+
+    koopa_app.kernel_response:
+        class: Koopa\Bundle\AppBundle\EventListener\ResponseListener
+        arguments: ['@koopa_app.html_modify_response']
+        tags:
+            - { name: kernel.event_subscriber }
+
+    koopa_app.html_modify_response:
+        class: Koopa\Bundle\AppBundle\Util\HtmlModify
+
+    koopa_app.role_provider:
+        class: Koopa\Bundle\AppBundle\Util\RoleProvider
+        arguments: ['@service_container']

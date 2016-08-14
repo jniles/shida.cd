@@ -1,0 +1,51 @@
+.form-group {
+    @include clearfix;
+    margin: 20px 0;
+}
+
+.form-group--lg {
+    margin: 60px 0;
+}
+
+.fab-select2, .site-select2 {
+    width: 100%;
+}
+
+.form-control {
+    padding: 0 20px;
+    box-shadow: none;
+    border-radius: 0;
+    height: 40px;
+    line-height: 40px;
+
+    &:focus {
+        box-shadow: none;
+        border-color: $brand-color;
+    }
+}
+
+textarea.form-control {
+    line-height: $base-line-height;
+    padding: 10px;
+}
+
+.form-control--rounded {
+    border-radius: 20px;
+}
+
+.form-control-collapse {
+    float: left;
+    border-right: none;
+    width: 150px;
+
+    @media only screen and (min-width: 480px) {
+        width: 50%;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        width: 70%;
+    }
+
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}

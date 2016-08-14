@@ -1,0 +1,45 @@
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_layout.html.twig' %}
+
+{% block base_layout %}
+    <div class="site-layout">
+        <div class="a">
+            <h2>Offres déjà publiees</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>titre</th>
+                        <th>publier ?</th>
+                        <th>date</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for job in vm.collections %}
+                        <tr data-jobs data-slug="{{ job.slug }}">
+                            <td>{{ job.title }}</td>
+                            <td>
+                                {% if job.active %}
+                                    <span class="fab-label fab-label--success">oui</span>
+                                {% else %}
+                                    <span class="fab-label fab-label--danger">non</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ job.createdAt|date('d M Y') }}</td>
+                            <td>
+                                <a href="{{ path('advertiser_jobs_show', {'slug': job.slug}) }}">voir</a> &nbsp;
+                                <a href="{{ path('advertiser_jobs_edit', {'id': job.id}) }}">éditer</a>
+                            </tr>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="b">
+            {% include 'FOSUserBundle:sidebar:b.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% set sidebar_menu_active = 'categories' %}
+
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_admin.html.twig' %}
+
+{% block body %}
+    <header class="header header--min">
+        <div class="container">
+            <div class="g-content-container">
+                <h2>Les categories</h2>
+                <a href="{{ path('manager_job_categories') }}" class="btn btn-success"> listes</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container container--min">
+            {{ form_start(form, {'attr': {'id': 'form-job-category'}}) }}
+                <div class="form-group">
+                    {{ form_label(form.name, 'Nom') }}
+                    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.name) }}
+                </div>
+
+                {{ form_rest(form) }}
+
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Enregistrer</button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}

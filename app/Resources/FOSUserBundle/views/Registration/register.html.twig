@@ -1,0 +1,10 @@
+{% block title %} creation d'un compte utilisateur {% endblock %}
+{% set sidebar_menu_active = 'user' %}
+
+{% extends '::base_layout.html.twig' %}
+
+{% block base_layout %}
+    {% block fos_user_content %}
+    {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+    {% endblock fos_user_content %}
+{% endblock %}

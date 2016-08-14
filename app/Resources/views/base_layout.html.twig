@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <nav id="standard-menu" class="standard-menu">
+        <a href="{{ path('pages_index') }}" class="menu__logo">
+            <img src="{{ asset('img/logo-outline.png') }}" alt="Logo le Recruteur">
+            <span>Le Recruteur</span>
+        </a>
+
+        <div class="menu__items">
+            <a href="{{ path('jobs_index') }}">Offres</a>
+            <a href="{{ path('jobs_index') }}">Site</a>
+        </div>
+
+
+        <!-- users button -->
+        <a id="start-side-menu-1" href="#" class="base-menu__side-start">
+            <span class="a"></span>
+            <span class="b"></span>
+            <span class="c"></span>
+        </a>
+        {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <a href="{{ path('fos_user_security_login') }}" class="button button--login">se connecter</a>
+        {% else %}
+            {# <a id="user__container" href="#" class="user__container as-notifications"> #}
+            <a id="user__container" href="#" class="user__container">
+                {% if app.user.image %}
+                    <img width="40px" height="auto" src="{{ asset(app.user.image.src) }}" alt="">
+                {% else %}
+                    <img src="{{ gravatar(app.user.email, 40) }}" alt="" />
+                {% endif %}
+            </a>
+        {% endif %}
+        <!-- endusers button -->
+    </nav>
+
+    <div class="site-content">
+        {#<nav class="submenu" id="submenu">#}
+            {#<div class="submenu__container">#}
+                {#<a href="#" id="submenu__container__button" class="submenu__container__button">#}
+                    {#<i class="ion-more"></i>#}
+                {#</a>#}
+
+                {#<div id="submenu__container__items" class="submenu__container__items">#}
+                    {#<a href="{{ path('pages_contact') }}">A propos</a>#}
+                    {#<a href="{{ path('pages_contact') }}">Contact</a>#}
+                {#</div>#}
+            {#</div>#}
+        {#</nav>#}
+
+        {% block base_layout %}
+
+        {% endblock %}
+    </div>
+{% endblock %}

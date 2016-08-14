@@ -1,0 +1,37 @@
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_layout.html.twig' %}
+
+{% block base_layout %}
+    <div class="site-layout">
+        <div class="a">
+            <h2>Parcelle déjà publiee</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre de maisons</th>
+                        <th>A vendre</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for parcel in parcels %}
+                        <tr data-parcel data-id="{{ parcel.id }}">
+                            <td>{{ parcel.houseNumber }}</td>
+                            <td>{{ parcel.forSale }}</td>
+                            <td>
+                                <a href="{{ path('immoffreur_parcels_show', {'id': parcel.id}) }}">voir</a> &nbsp;
+                                <a href="{{ path('immoffreur_parcels_edit', {'id': parcel.id}) }}">éditer</a>
+                            </tr>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="b">
+            {% include 'FOSUserBundle:sidebar:b.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

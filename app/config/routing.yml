@@ -1,0 +1,15 @@
+koopa_job:
+    resource: "@KoopaJobBundle/Controller"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+koopa_app:
+    resource: "@KoopaAppBundle/Controller"
+    type:     annotation
+
+koopa_user:
+    resource: "@KoopaUserBundle/Controller"
+    type:     annotation
+

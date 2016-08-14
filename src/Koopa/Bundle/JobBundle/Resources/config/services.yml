@@ -1,0 +1,30 @@
+services:
+    koopa_job.subscription_manager:
+        class: Koopa\Bundle\JobBundle\Doctrine\SubscriptionManager
+        arguments: ['@doctrine.orm.default_entity_manager']
+
+    job_view_skill_assembler:
+        class: Koopa\Bundle\JobBundle\Assembler\ViewSkillAssembler
+
+    job_view_location_assembler:
+        class: Koopa\Bundle\JobBundle\Assembler\ViewLocationAssembler
+
+    job_view_category_assembler:
+        class: Koopa\Bundle\JobBundle\Assembler\ViewCategoryAssembler
+
+    job_view_subcategory_assembler:
+        class: Koopa\Bundle\JobBundle\Assembler\ViewSubCategoryAssembler
+
+    job_view_job_assembler:
+        class: Koopa\Bundle\JobBundle\Assembler\ViewJobAssembler
+
+    job_view_subscription_assembler:
+        class: Koopa\Bundle\JobBundle\Assembler\ViewSubscriptionAssembler
+        arguments:
+            - '@user_view_user_assembler'
+
+    job_fixtures.job_data:
+        class: Koopa\Bundle\JobBundle\DataFixtures\ORM\LoadJobData
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@fos_user.user_manager'

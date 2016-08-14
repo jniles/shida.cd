@@ -1,0 +1,29 @@
+<h4>Panneau de configurations</h4>
+
+<ul class="user__config">
+    {% if is_granted('ROLE_MANAGER') %}
+        <li class="item">
+            <a href="{{ path('admin_pages_index') }}">
+            <i class="ion-quote"></i> Dashboard
+            </a>
+        </li>
+    {% endif %}
+    {% if is_granted('ROLE_APPLICANT') %}
+        <li class="item">
+            <a href="{{ path('applicants_index') }}">
+            <i class="ion-home"></i> Acceuil
+            </a>
+        </li>
+    {% elseif is_granted('ROLE_ADVERTISER') %}
+        <li class="item">
+            <a href="{{ path('advertisers_index') }}">
+            <i class="ion-home"></i> Acceuil
+            </a>
+        </li>
+    {% endif %}
+    <li class="item"><a href="{{ path('fos_user_profile_edit') }}"><i class="ion-person"></i> profil édition</a></li>
+    <li class="item"><a href="{{ path('fos_user_change_password') }}"><i class="ion-locked"></i> securité mot de passe</a></li>
+    {% if is_granted('ROLE_APPLICANT') %}
+        <li class="item"><a href="#"><i class="ion-document-text"></i>  curriculum vitae</a></li>
+    {% endif %}
+</ul>

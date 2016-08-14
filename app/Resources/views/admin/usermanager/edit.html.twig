@@ -1,0 +1,36 @@
+{% set sidebar_menu_active = 'users' %}
+
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_admin.html.twig' %}
+
+{% block body %}
+    <header class="header header--min">
+        <div class="container">
+            <div class="g-content-container">
+                <h2>{{ vm.username }} | mise à jour du compte</h2>
+            </div>
+        </div>
+    </header>
+
+    <section class="section section--with-sidebar">
+        <div class="container container--min">
+            {{ form_start(form, {'attr': {'id': 'form-user'}}) }}
+
+            <div class="form-group">
+                {{ form_label(form.roles, 'Roles de l\'utilisateur') }}
+                {{ form_widget(form.roles) }}
+                {{ form_errors(form.roles) }}
+            </div>
+
+            {#{{ form_rest(form) }}#}
+
+            <p><br></p>
+            <button class="btn btn-primary" type="submit">Enregistrer</button>
+            {{ form_end(form) }}
+        </div>
+        <div class="section__sidebar">
+
+        </div>
+    </section>
+{% endblock %}

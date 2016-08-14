@@ -1,0 +1,59 @@
+.errors__hummer {
+    font-size: 3rem;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 4.5rem;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        font-size: 5.5rem;
+    }
+}
+
+.errors__text {
+    font-family: $secondary-font-family;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 5rem;
+    color: #ff3535;
+    text-align: center;
+    line-height: 60px;
+    margin: 0;
+    padding: 25px 0;
+
+    @extend %box-shadow;
+
+    span {
+        display: block;
+    }
+
+    span.errors__code {
+        font-size: 7rem;
+        color: #000;
+    }
+
+    @media only screen and (min-width: 768px) {
+        width: 60%;
+        margin: 0 auto;
+        line-height: 80px;
+        font-size: 8rem;
+
+        span.errors__code {
+            font-size: 10rem;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        line-height: 90px;
+        font-size: 8.5rem;
+
+        span.errors__code {
+            font-size: 11rem;
+        }
+    }
+}
+
+.errors__help-message {
+    margin-top: 45px;
+    font-size: 1.7rem;
+}

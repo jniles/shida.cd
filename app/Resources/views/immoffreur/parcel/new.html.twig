@@ -1,0 +1,69 @@
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_layout.html.twig' %}
+
+{% block base_layout %}
+    <div class="site-layout">
+        <div class="a">
+            <h2>Publier un nouvel offre</h2>
+
+            {{ form_start(form, {'attr': {'class': 'form', 'id': 'form-parcel'}}) }}
+                <div class="form-group">
+                    {{ form_label(form.houseNumber, 'Nombre de maisons') }}
+                    {{ form_widget(form.houseNumber, { 'attr': { 'class': 'form-control' } }) }}
+                    {{ form_errors(form.houseNumber) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.address.city, 'Ville') }}
+                    {{ form_widget(form.address.city, { 'attr': { 'class': 'form-control' } }) }}
+                    {{ form_errors(form.address.city) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.address.street, 'Avenue et numero') }}
+                    {{ form_widget(form.address.street, { 'attr': { 'class': 'form-control' } }) }}
+                    {{ form_errors(form.address.street) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.address.commune, 'Commune') }}
+                    {{ form_widget(form.address.commune, { 'attr': { 'class': 'form-control' } }) }}
+                    {{ form_errors(form.address.commune) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.address.quarter, 'Quartier') }}
+                    {{ form_widget(form.address.quarter, { 'attr': { 'class': 'form-control' } }) }}
+                    {{ form_errors(form.address.quarter) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.description, 'Description') }}
+                    {{ form_widget(form.description, { 'attr': { 'class': 'form-control' } }) }}
+                    {{ form_errors(form.description) }}
+                </div>
+
+
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            {{ form_widget(form.forSale) }}
+                            A vendre ?
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <button class="button" type="submit">enregister</button>
+                </div>
+
+            {{ form_end(form) }}
+        </div>
+
+        <div class="b">
+            {% include 'FOSUserBundle:sidebar:b.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

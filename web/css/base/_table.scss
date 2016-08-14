@@ -1,0 +1,13 @@
+.table__block-row {
+    a {
+        display: block;
+        position: relative;
+        text-decoration: none;
+
+        .fab-label {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+}

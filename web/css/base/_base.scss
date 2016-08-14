@@ -1,0 +1,62 @@
+// BASE RULES
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    color: $defautl-text-color;
+    font-weight: 400;
+
+    a {
+        color: $brand-color;
+        text-decoration: underline;
+    }
+}
+
+hr {
+    display: block;
+    height: 1px;
+    background-color: #ddd;
+    border: none;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        font-family: $secondary-font-family;
+        font-weight: bold;
+
+        span.text-mini {
+            font-family: $base-font-family;
+            font-weight: 500;
+            font-size: 14px;
+        }
+    }
+}
+
+::selection {
+    color: #fff;
+    background-color: $brand-color;
+}
+
+.site-content {
+    @include clearfix;
+    padding-top: 60px;
+}
+
+.default-title {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.text-grey {
+    color: #999;
+    border-bottom: 1px dotted #999;
+}
+
+.clearfix {
+    @include clearfix;
+}

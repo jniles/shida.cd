@@ -1,0 +1,39 @@
+{% set sidebar_menu_active = 'skills' %}
+
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_admin.html.twig' %}
+
+{% block body %}
+    <header class="header header--min">
+        <div class="container">
+            <div class="g-content-container">
+                <h2>Les competences</h2>
+                <a href="{{ path('manager_job_skills_new') }}" class="btn btn-success btn-lg">+ ajouter</a>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="section">
+        <div class="container">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>titre</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for skill in vm.collections %}
+                        <tr data-id="{{ skill.id }}">
+                            <td>{{ skill.name }}</td>
+                            <td><a href="{{ path('manager_job_skills_edit', {'id': skill.id}) }}" class="btn btn-warning btn-sm">Edit</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+{% endblock %}

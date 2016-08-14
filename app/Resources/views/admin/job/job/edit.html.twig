@@ -1,0 +1,92 @@
+{% set sidebar_menu_active = 'jobs' %}
+
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_admin.html.twig' %}
+
+
+{% block body %}
+    <header class="header header--min">
+        <div class="container">
+            <div class="g-content-container">
+                <h2>Les offres</h2>
+            </div>
+        </div>
+    </header>
+
+    <section class="section section--with-sidebar">
+        <div class="container container--min">
+            {{ form_start(edit_form, {'attr': {'id': 'form-job'}}) }}
+
+            <div class="form-group">
+                {{ form_label(edit_form.title, 'Title') }}
+                {{ form_widget(edit_form.title, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(edit_form.title) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(edit_form.summary, 'Description') }}
+                {{ form_widget(edit_form.summary, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(edit_form.summary) }}
+            </div>
+
+{#             <div class="form-group">
+                {{ form_label(edit_form.startAt, 'debut postilation') }}
+                {{ form_widget(edit_form.startAt, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(edit_form.startAt) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(edit_form.timeLeft, 'Temps de validite') }}
+                {{ form_widget(edit_form.timeLeft, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(edit_form.timeLeft) }}
+            </div> #}
+
+            <div class="form-group">
+                {{ form_label(edit_form.paymentMethod, 'Payment method') }}
+                {{ form_widget(edit_form.paymentMethod) }}
+                {{ form_errors(edit_form.paymentMethod) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(edit_form.subCategories, 'Categories') }}
+                {{ form_widget(edit_form.subCategories) }}
+                {{ form_errors(edit_form.subCategories) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(edit_form.skills, 'Skills') }}
+                {{ form_widget(edit_form.skills) }}
+                {{ form_errors(edit_form.skills) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(edit_form.locations, 'Locations') }}
+                {{ form_widget(edit_form.locations) }}
+                {{ form_errors(edit_form.locations) }}
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    {{ form_widget(edit_form.active) }} publier
+                </label>
+            </div>
+
+
+            {{ form_widget(edit_form._token) }}
+
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Enregistrer</button>
+            </div>
+            {{ form_end(edit_form, {'render_rest': false}) }}
+        </div>
+
+        <div class="section__sidebar">
+            {{ form_start(delete_form, {'attr': {'id': 'form-job-delete'}}) }}
+            {{ form_widget(delete_form) }}
+            <p>attention une fois supprimer vous ne pouvez plus faire marche en arriere !</p>
+            <button class="btn btn-danger btn-forms">Supprimer</button>
+            {{ form_end(delete_form) }}
+        </div>
+    </section>
+{% endblock %}

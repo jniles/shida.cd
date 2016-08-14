@@ -1,0 +1,136 @@
+.last-job {
+    height: 150px;
+    background-color: $brand-color;
+    color: #fff;
+    @include clearfix;
+    position: relative;
+
+    .container {
+        height: 100%;
+    }
+
+    .title {
+        padding: 0;
+        margin: 0;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.timeline {
+    padding-top: 50px;
+}
+
+.last-job__list {
+    box-shadow: 0 10px 60px rgba(#000, .2);
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .a {
+        width: 100%;
+        padding: 20px;
+
+        @media only screen and (min-width: 768px) {
+            padding: 0;
+            width: 70%;
+        }
+    }
+
+    .b {
+        padding: 15px;
+        width: 100%;
+        background-color: #f8f8f8;
+        @media only screen and (min-width: 768px) {
+            padding: 20px;
+            width: 30%;
+        }
+    }
+}
+
+.last-job__pagination {
+    margin-top: 40px;
+    height: 200px;
+    position: relative;
+
+    .left, .right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .left {
+        left: 25px;
+    }
+
+    .right {
+        right: 25px;
+    }
+}
+
+
+.last-job__pagination--indexes {
+    height: 125px;
+
+    .left {
+        left: 0;
+    }
+
+    .right {
+        right: 0;
+    }
+}
+
+.last-job__title {
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+.round-default {
+    display: none;
+
+    @media only screen and (min-width: 1024px) {
+        display: inline-block;
+    }
+}
+
+.round-button.right, .round-button.left {
+    display: none;
+
+    @media only screen and (min-width: 1024px) {
+        display: inline-block;
+    }
+}
+
+.round-button.prev {
+
+    float: left;
+    margin-left: 10px;
+
+    @media only screen and (min-width: 1024px) {
+        display: none;
+    }
+}
+
+.round-button.next {
+
+    margin-right: 10px;
+    float: right;
+
+    @media only screen and (min-width: 1024px) {
+        display: none;
+    }
+}
+
+.last-job__pagination__number {
+    display: block;
+    width: 150px;
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}

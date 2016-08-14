@@ -1,0 +1,92 @@
+.data-index__container {
+    @extend %box-shadow;
+}
+
+.data-index__item {
+    padding: 20px;
+    min-height: 120px;
+    position: relative;
+    color: #fff;
+
+    background-color: $dark-color;
+
+    .button {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 12px;
+        text-transform: uppercase;
+
+        i {
+            margin-left: 5px;
+        }
+
+        @media only screen and (min-width: 768px) {
+            position: static;
+            float: right;
+        }
+    }
+
+    .group-title {
+
+        @media only screen and (min-width: 768px) {
+            float: left;
+        }
+
+        .picture-container, .entity-name {
+            @media only screen and (min-width: 768px) {
+                float: left;
+            }
+        }
+
+        .entity-name {
+            color: #a6a9ad;
+            a { color: $blue-color; }
+            span {
+                font-size: 13px;
+                margin-left: 10px;
+            }
+        }
+
+        .picture-container {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            opacity: 0;
+            margin-right: 15px;
+        }
+    }
+
+    .content {
+        clear: both;
+        margin-top: 60px;
+        font-size: 14px;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
+    &:nth-child(even) {
+        background-color: $grey-color;
+        color: $dark-color;
+
+        .group-title {
+
+            .picture-container, .entity-name {
+            }
+
+            .entity-name {
+                color: $dark-color;
+                a { color: $brand-color; }
+            }
+
+            .picture-container {
+            }
+        }
+
+        .content {
+        }
+    }
+}

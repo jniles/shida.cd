@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+            {{ vm.pageTitle|default('trouvez un travail rapidement | lerecruteur.cd') }}
+        {% endblock %}
+    </title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                {% if type == 'success' %}
+                    <div class="alert alert--success">
+                        <a id="alert__control" href="#" class="control"><i class="ion-close-round"></i></a>
+                        <div class="content">
+                            <h6>Bravo !</h6>
+                            <p>{{ message }}.</p>
+                        </div>
+                    </div>
+
+                {% elseif type == 'danger' or type == 'error' %}
+                    <div class="alert alert--danger">
+                        <a id="alert__control" href="#" class="control"><i class="ion-close-round"></i></a>
+                        <div class="content">
+                            <h6>Oups, Erreur !</h6>
+                            <p>{{ message }}.</p>
+                        </div>
+                    </div>
+                {% elseif type == 'info' %}
+                    <div class="alert alert--info">
+                        <a id="alert__control" href="#" class="control"><i class="ion-close-round"></i></a>
+                        <div class="content">
+                            <h6>Information !</h6>
+                            <p>{{ message }}.</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+    <div id="side-menu__container" class="side-menu__container">
+        <a href="#" class="close" id="side-menu-close"><i class="ion-arrow-left-c"></i></a>
+
+        <div class="side-menu">
+            <div class="side-menu__mobile">
+                <a href="{{ path('jobs_index') }}" class="item">Offres</a>
+                <a href="{{ path('jobs_index') }}" class="item">Site</a>
+            </div>
+
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <a href="{{ path('fos_user_profile_show') }}" class="item">
+                    <i class="ion-person"></i>
+                    {{ app.user.username }}
+                </a>
+
+                {% if is_granted('ROLE_APPLICANT') %}
+                    <a href="{{ path('applicants_index') }}" class="item">
+                        <i class="ion-gear-b"></i>
+                        dashboard
+                    </a>
+                {% elseif is_granted('ROLE_ADVERTISER') %}
+                    <a href="{{ path('advertisers_index') }}" class="item">
+                        <i class="ion-gear-b"></i>
+                        dashboard
+                    </a>
+                {% elseif is_granted('ROLE_MANAGER') %}
+                    <a href="{{ path('admin_usermanagers') }}" class="item">
+                        <i class="ion-clipboard"></i>
+                        manage content
+                    </a>
+                {% endif %}
+            {% endif %}
+
+
+        </div>
+        <div class="side-menu__bottom">
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <a href="{{ path('fos_user_security_logout') }}" class="button">deconnexion</a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}" class="button">connexion</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% block body %}
+
+    {% endblock %}
+
+    <div class="clearfix"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <h3>RACONTEZ-NOUS VOTRE HISTOIRE</h3>
+
+                    <p>
+                        Créez votre profil en quelques secondes et soyez sélectionné pour être présenté à l'ensemble de nos clients.
+                    </p>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <h3>RECEVEZ DES PROPOSITIONS D'ENTRETIEN</h3>
+
+                    Nos entreprises clientes vous proposent de vous rencontrer en mentionnant une fourchette de salaire et les stock options dont vous pouvez bénéficier.
+                </div>
+
+                <div class="col-xs-12 col-md-4">
+                    <h3><img width="80px" src="{{ asset('img/logo-outline-2.png') }}" alt=""> &nbsp;&nbsp; LE RECRUTEUR</h3>
+
+
+                </div>
+
+                <div class="col-xs-12">
+                    <p><a class="footer__mailto" href="mailto:contact@lerecruteur.cd">contact@lerecruteur.cd</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+</body>
+</html>

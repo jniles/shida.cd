@@ -1,0 +1,33 @@
+.fab-label {
+    min-width: 25px;
+    height: 25px;
+    line-height: 25px;
+    display: inline-block;
+    padding: 0 5px;
+    text-align: center;
+
+    background-color: #ccc;
+    color: $dark-color;
+    border-radius: 25px;
+    font-size: 13px;
+
+    @at-root &--success {
+        color: #fff;
+        background-color: #2ecc71;
+    }
+
+    @at-root &--danger {
+        color: #fff;
+        background-color: #e74c3c;
+    }
+
+    @at-root &--info {
+        color: #fff;
+        background-color: #3498db;
+    }
+
+    @at-root &--warning {
+        color: $dark-color;
+        background-color: #f39c12;
+    }
+}

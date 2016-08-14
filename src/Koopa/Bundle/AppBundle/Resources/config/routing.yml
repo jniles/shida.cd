@@ -1,0 +1,3 @@
+koopa_app_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: KoopaAppBundle:Default:index }

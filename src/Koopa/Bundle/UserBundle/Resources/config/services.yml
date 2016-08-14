@@ -1,0 +1,19 @@
+parameters:
+    koopa_user.registration_initialize.class: Koopa\Bundle\UserBundle\EventListener\RegistrationListener
+
+services:
+    koopa_user.form.profile:
+        class: Koopa\Bundle\UserBundle\Form\ProfileType
+        tags:
+            - { name: form.type }
+
+    user_view_user_assembler:
+        class: Koopa\Bundle\UserBundle\Assembler\ViewUserAssembler
+
+    koopa_user.registration_initialize:
+        class: "%koopa_user.registration_initialize.class%"
+        arguments:
+            - '@session'
+            - '@router'
+        tags:
+            - { name: kernel.event_subscriber }

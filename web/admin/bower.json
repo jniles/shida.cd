@@ -1,0 +1,22 @@
+{
+  "name": "webapp",
+  "version": "0.1.0",
+  "homepage": "https://github.com/gorvelyfab/webapp",
+  "authors": [
+    "Gorvely Tasinda <gorvelyfab@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Ionicons": "ionicons#~2.0.1",
+    "normalize.css": "~3.0.3",
+    "bootstrap-sass": "~3.3.4",
+    "bootstrap-datepicker": "https://github.com/eternicode/bootstrap-datepicker.git#~1.4.0"
+  }
+}

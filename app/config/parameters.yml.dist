@@ -1,0 +1,17 @@
+parameters:
+    database_driver:   pdo_sqlite
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     core201508
+    database_user:     root
+    database_password: synapse
+    database_path: "%kernel.root_dir%/data/data.db3"
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            fr
+
+    secret:            105632e10be2b397af6938d104f834a7cb6

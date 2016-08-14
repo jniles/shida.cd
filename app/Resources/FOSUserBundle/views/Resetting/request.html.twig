@@ -1,0 +1,8 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block title %} Demande de redefinition du mot de passe {% endblock %}
+
+{% block base_layout %}
+    {% block fos_user_content %}
+    {% include "FOSUserBundle:Resetting:request_content.html.twig" %}
+    {% endblock fos_user_content %}
+{% endblock %}

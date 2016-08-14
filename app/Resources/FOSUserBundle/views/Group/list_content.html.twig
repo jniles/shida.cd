@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-push-2">
+            <h2>Liste de groupes utilisateurs</h2>
+
+            <div class="fos_user_group_list">
+                <ul>
+                {% for group in groups %}
+                    <li><a href="{{ path('fos_user_group_show', {'groupName': group.getName()} ) }}">{{ group.getName() }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

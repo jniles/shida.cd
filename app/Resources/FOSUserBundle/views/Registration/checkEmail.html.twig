@@ -1,0 +1,20 @@
+{# is success #}
+{% block title %} Verification de votre adresse email {% endblock %}
+
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block base_layout %}
+    {% trans_default_domain 'FOSUserBundle' %}
+
+    {% block fos_user_content %}
+        <div class="container">
+
+            <div class="row">
+                <div class="col-xs-12 col-md-8 col-md-push-2">
+                    <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+                </div>
+            </div>
+
+        </div>
+    {% endblock fos_user_content %}
+{% endblock %}

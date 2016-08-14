@@ -1,0 +1,35 @@
+$section-sidebar-width: 350px;
+
+.section {
+  padding: 50px 0;
+  position: relative;
+
+  @media only screen and (min-width: 768px) {
+    padding: 100px 0;
+  }
+
+  @at-root &__sidebar {
+    position: absolute;
+    right: - $section-sidebar-width;
+    top: 0;
+    bottom: 0;
+    width: $section-sidebar-width;
+    background-color: #ffffff;
+    border: 1px solid #e3e3e3;
+    padding: $grid-gutter-width * .5;
+  }
+
+  @at-root &__title {
+    margin: 25px 0;
+  }
+}
+
+.section--with-sidebar {
+  margin-right: $section-sidebar-width;
+  min-height: 350px;
+}
+
+.section--white {
+  min-height: 350px;
+  background-color: #ffffff;
+}

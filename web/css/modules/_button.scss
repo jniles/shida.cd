@@ -1,0 +1,86 @@
+.button {
+    border: none;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    background-color: $brand-color;
+    display: inline-block;
+
+    font-family: $secondary-font-family;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+
+    padding: 0 20px;
+    border-radius: 20px;
+    transition: all .3s;
+
+    @extend %box-shadow;
+
+    &:hover {
+        transition: all .3s;
+        background-color: lighten($brand-color, 2.5%);
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+        background-color: lighten($brand-color, 20%);
+
+        &:hover {
+            background-color: lighten($brand-color, 20%);
+        }
+    }
+
+    i { font-size: 14px; }
+}
+
+.button--success {
+    background-color: #2ecc71;
+
+    &:hover {
+        background-color: lighten(#2ecc71, 5%);
+    }
+}
+
+.button--danger {
+    background-color: #e74c3c;
+
+    &:hover {
+        background-color: lighten(#e74c3c, 5%);
+    }
+}
+
+.button--no-shadow {
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.round-button {
+    @extend .button;
+    padding: 0;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+
+.round-button--current {
+    background-color: transparent;
+    border: 2px solid $brand-color;
+    color: $brand-color;
+
+    &:hover {
+        background-color: transparent;
+        cursor: pointer;
+        color: $brand-color;
+    }
+}
+
+.button--collapse {
+    box-shadow: none;
+    float: left;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}

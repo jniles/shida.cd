@@ -1,0 +1,31 @@
+header.header {
+    @include clearfix;
+    position: relative;
+    background: #505050 url('../img/header-bg.jpg') left top no-repeat fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.header__last-job-link {
+    text-decoration: none;
+    color: #fff;
+    transition: all .3s;
+    text-align: center;
+    display: inline-block;
+
+    &:hover {
+        text-decoration: none;
+        transition: all .3s;
+        color: $blue-color;
+    }
+
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    span {
+        display: block;
+
+    }
+}

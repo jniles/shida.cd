@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    page d'acceuil | shida.cd
+{% endblock %}
+
+{% block body %}
+    <nav id="base-menu" class="menu">
+        <a href="{{ path('pages_index') }}" class="menu__logo">
+            <img src="{{ asset('img/logo-outline.png') }}" alt="Logo le Recruteur">
+            <span>Le Recruteur</span>
+        </a>
+
+        <div class="menu__items">
+            <a href="{{ path('jobs_index') }}">Offres</a>
+            <a href="{{ path('jobs_index') }}">Site</a>
+        </div>
+
+
+
+
+        <!-- users button -->
+        <a id="start-side-menu-1" href="#" class="base-menu__side-start">
+            <span class="a"></span>
+            <span class="b"></span>
+            <span class="c"></span>
+        </a>
+        {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <a href="{{ path('fos_user_security_login') }}" class="button button--login">se connecter</a>
+        {% else %}
+            {# <a id="user__container" href="#" class="user__container as-notifications"> #}
+            <a id="user__container" href="#" class="user__container">
+                {% if app.user.image %}
+                    <img src="{{ asset(app.user.image.src) }}" alt="">
+                {% else %}
+                    <img src="{{ gravatar(app.user.email, 40) }}" alt="" />
+                {% endif %}
+            </a>
+        {% endif %}
+        <!-- endusers button -->
+    </nav>
+
+
+    <header id="base-header" class="header">
+        {{ render(controller('KoopaJobBundle:JobSearch:keyword', {'template': 'homepage'})) }}
+
+        <a class="header__last-job-link" href="#lastet-job">
+            <span>Dernier offres publier</span>
+            <i class="ion-chevron-down"></i>
+        </a>
+    </header>
+
+
+    <div class="last-job">
+        <div class="container">
+            <h2 id="lastet-job" class="title">Dernier offres publier</h2>
+        </div>
+    </div>
+
+    <section class="last-job__list">
+        <div class="a">
+            <div class="timeline">
+                {% for key, job_group in vm %}
+                    <div class="timeline__section">
+
+                        <div class="timeline__section__title">
+                            <h2>{{ job_group|first.createdAt|date('M Y') }}</h2>
+                        </div>
+
+                        <div class="timeline__section__items">
+                            {% for job in job_group %}
+                                <div class="timeline__section__item">
+                                    <div class="body">
+                                        <a href="#">Par {{ job.user.username }}</a> <span>| le {{ job.createdAt|date('d') }}</span>
+                                        <h5 class="title"><a href="{{ path('jobs_show', {'slug': job.slug}) }}">{{ job.title }}</a></h5>
+
+                                        <p class="description">{{ job.summary|truncate(100, true) }}</p>
+
+                                        <a href="{{ path('jobs_show', {'slug': job.slug}) }}" class="button">voir <i class="ion-ios-arrow-forward"></i></a>
+                                    </div>
+                                    <div class="picture-container">
+                                        {% if job.user.image %}
+                                            <img src="{{ asset(job.user.image.src) }}" alt="">
+                                        {% else %}
+                                            <img src="{{ gravatar(job.user.email, 125) }}" alt="" />
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="b">
+            <h2>Newsletter</h2>
+            <p>Suivez l'activité du site en souscrivant dans le systeme de newsletter.</p>
+
+            <div class="form-group">
+                <input type="text" placeholder="votre adresse email" class="form-control form-control--rounded form-control-collapse">
+                <button class="button button--collapse" type="submit">Envoyer</button>
+            </div>
+
+            <div style="margin-top:60px">
+                <img width="100%" height="auto" src="{{ asset('img/lerecruteur-2.jpg') }}" alt="">
+                <p>Les meilleures opportunités viennent à vous.</p>
+            </div>
+
+        </div>
+    </section>
+    {{ knp_pagination_render(pagination) }}
+
+{% endblock %}

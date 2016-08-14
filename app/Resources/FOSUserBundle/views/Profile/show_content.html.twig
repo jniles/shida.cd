@@ -1,0 +1,48 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="site-layout">
+    <div class="a">
+        <div class="user__info">
+            <a href="{{ path('fos_user_profile_edit') }}" class="button button--success button--no-shadow">Mettre à jour</a>
+
+            <div class="user__info__content">
+
+                <div class="picture-container">
+                    {% if user.image %}
+                        <img src="{{ asset(user.image.src) }}" alt="">
+                    {% else %}
+                        <img src="{{ gravatar(user.email, 150) }}" alt="" />
+                    {% endif %}
+                </div>
+                <p class="username">{{ user.fullName }}</p>
+                <p class="email">{{ user.email }}</p>
+
+            </div>
+        </div>
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th>Nom d'utilisateur</th>
+                    <td>{{ user.username|default('non définie') }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ user.firstname|default('non définie') }}</td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>{{ user.lastname|default('non définie') }}</td>
+                </tr>
+                <tr>
+                    <th>Sexe</th>
+                    {% set gender = '%' ~ user.gender|default('non définie') ~ '%' %}
+                    <td>{{ gender|replace({'%male%': 'Homme', '%female%': 'Femme', '%non définie%': 'non définie'}) }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="b">
+        {% include 'FOSUserBundle:sidebar:b.html.twig' %}
+    </div>
+</div>

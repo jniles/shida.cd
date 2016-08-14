@@ -1,0 +1,49 @@
+{% set sidebar_menu_active = 'locations' %}
+
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_admin.html.twig' %}
+
+{% block body %}
+    <header class="header header--min">
+        <div class="container">
+            <div class="g-content-container">
+                <h2>Les localisations</h2>
+                <a href="{{ path('manager_job_locations_new') }}" class="btn btn-success btn-lg">+ ajouter</a>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="section section--with-sidebar">
+        <div class="container">
+            {{ form_start(edit_form, {'attr': {'id': 'form-job-location'}}) }}
+            <div class="form-group">
+                {{ form_label(edit_form.country, 'Country') }}
+                {{ form_widget(edit_form.country, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(edit_form.country) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(edit_form.town, 'Town') }}
+                {{ form_widget(edit_form.town, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(edit_form.town) }}
+            </div>
+
+            {{ form_rest(edit_form) }}
+
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Enregistrer</button>
+            </div>
+            {{ form_end(edit_form) }}
+        </div>
+
+        <div class="section__sidebar">
+            {{ form_start(delete_form, {'attr': {'id': 'form-job-location-delete'}}) }}
+            {{ form_widget(delete_form) }}
+            <p>attention une fois supprimer vous ne pouvez plus faire marche en arriere !</p>
+            <button class="btn btn-danger btn-forms">Supprimer</button>
+            {{ form_end(delete_form) }}
+        </div>
+    </section>
+{% endblock %}

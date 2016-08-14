@@ -1,0 +1,53 @@
+{% block title %} Choisir votre type de compte {% endblock %}
+
+{% extends '::base_layout.html.twig' %}
+
+{% block base_layout %}
+    <div class="container">
+        <div class="site__header">
+            <div class="picture-container picture-container--no-margin">
+                <img src="{{ asset('img/6.jpg') }}" alt="">
+            </div>
+
+            <h2 class="title">Choisissez le type de votre compte</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <h4>pour un chercher d'emploi</h4>
+
+                <p>
+                    en souscrivant en tant que candidat vous
+                    aurez la possibilite d'avoir acces a la liste
+                    de publication de different offres
+                </p>
+
+                <p>
+                    ainsi que la possibilite de postiler, si jamais
+                    vous trouvez un travail qui vous interesse.
+                </p>
+
+                <p>
+                    <a class="button" id="signin-as-applicant" href="{{ path('users_signin') }}?_as=applicant">candidat </a>
+                </p>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <h4>pour un chercher d'emploi</h4>
+
+                <p>
+                    Reserver aux employeurs,
+                    vous devez etre une entite existante pour tirer
+                    profit de ce type de compte.
+                </p>
+
+                <p>
+                    car il vous permettra de publier facilement des offres d'emploi
+                </p>
+
+                <p class="tb-margin">
+                    <a class="button" id="signin-as-advertiser" href="{{ path('users_signin') }}?_as=advertiser">annonceur </a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

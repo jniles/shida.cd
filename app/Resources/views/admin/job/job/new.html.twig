@@ -1,0 +1,82 @@
+{% set sidebar_menu_active = 'jobs' %}
+
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_admin.html.twig' %}
+
+{% block body %}
+    <header class="header header--min">
+        <div class="container">
+            <div class="g-content-container">
+                <h2>publier une offre pour {{ vm.username }}</h2>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container container--min">
+            {{ form_start(form, {'attr': {'id': 'form-job'}}) }}
+                <div class="form-group">
+                    {{ form_label(form.title, 'Titre') }}
+                    {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.title) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.summary, 'Description') }}
+                    {{ form_widget(form.summary, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.summary) }}
+                </div>
+
+{#                 <div class="form-group">
+                    {{ form_label(form.startAt, 'debut postilation') }}
+                    {{ form_widget(form.startAt, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.startAt) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.timeLeft, 'Temps de validite') }}
+                    {{ form_widget(form.timeLeft, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.timeLeft) }}
+                </div> #}
+
+                <div class="form-group">
+                    {{ form_label(form.paymentMethod, 'Mode de payement') }}
+                    {{ form_widget(form.paymentMethod) }}
+                    {{ form_errors(form.paymentMethod) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.subCategories, 'Categories') }}
+                    {{ form_widget(form.subCategories) }}
+                    {{ form_errors(form.subCategories) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.skills, 'Competences requisent') }}
+                    {{ form_widget(form.skills) }}
+                    {{ form_errors(form.skills) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.locations, 'Localisations') }}
+                    {{ form_widget(form.locations) }}
+                    {{ form_errors(form.locations) }}
+                </div>
+
+            <div class="checkbox">
+                <label>
+                    {{ form_widget(form.active) }} publier
+                </label>
+            </div>
+
+            {{ form_widget(form._token) }}
+
+
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Enregistrer</button>
+            </div>
+            {{ form_end(form, {'render_rest': false}) }}
+        </div>
+    </section>
+{% endblock %}

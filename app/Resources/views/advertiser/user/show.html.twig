@@ -1,0 +1,44 @@
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_layout.html.twig' %}
+
+{% block base_layout %}
+    <div class="site-layout">
+        <div class="a">
+            <div class="row">
+                <div class="col-xs-12 col-md-10">
+                    <h2>à propos de  <span class="text-grey">"{{ vm.fullName }}"</span></h2>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <th>Nom</th>
+                                <td>{{ vm.firstname|default('non définie') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Prénom</th>
+                                <td>{{ vm.lastname|default('non définie') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Sexe</th>
+                                {% set gender = '%' ~ vm.gender|default('non définie') ~ '%' %}
+                                <td>{{ gender|replace({'%male%': 'Homme', '%female%': 'Femme', '%non définie%': 'non définie'}) }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-12 col-md-2">
+                    {% if vm.isNotAccepted %}
+                        <a data-accept href="{{ vm.action }}" class="button button--success button--no-shadow">Accepter</a>
+                    {% else %}
+                        <a data-accept href="{{ vm.action }}" class="button button--danger button--no-shadow">Refuser</a>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="b">
+            {% include 'FOSUserBundle:sidebar:b.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

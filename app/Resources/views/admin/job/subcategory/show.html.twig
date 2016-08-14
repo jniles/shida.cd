@@ -1,0 +1,30 @@
+{% set sidebar_menu_active = 'subcategories' %}
+
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_admin.html.twig' %}
+
+{% block body %}
+    <header class="header header--min">
+        <div class="container">
+            <div class="g-content-container">
+                <h2>{{ vm.name }}</h2>
+                <a href="{{ path('manager_job_subcategories_new') }}" class="btn btn-success btn-lg">+ ajouter</a>
+                <a href="{{ path('manager_job_subcategories_edit', {'id': vm.id}) }}" class="btn btn-warning btn-lg">modifier</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section section--with-sidebar">
+        <div class="container container--min">
+        </div>
+
+        <div class="section__sidebar">
+            {{ form_start(delete_form, {'attr': {'id': 'form-job-subcategory-delete'}}) }}
+            {{ form_widget(delete_form) }}
+            <p>attention une fois supprimer vous ne pouvez plus faire marche en arriere !</p>
+            <button class="btn btn-danger btn-forms">Supprimer</button>
+            {{ form_end(delete_form) }}
+        </div>
+    </section>
+{% endblock %}

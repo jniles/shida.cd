@@ -1,0 +1,51 @@
+{% block title %} chers {{ app.user.username }} veilluez confirmé votre souscriptions {% endblock %}
+
+{% extends '::base_layout.html.twig' %}
+
+{% block base_layout %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <div class="site__header">
+                    <div class="picture-container">
+                        <img src="{{ asset('img/8.jpg') }}" alt="">
+                    </div>
+
+                    <h3 class="title">Confirmer votre souscriptions</h3>
+                </div>
+
+
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi sit quas minima eveniet. Voluptatem, tempore ea, sed mollitia quia, error accusantium quasi quam maxime nisi odit cum aperiam consequuntur rerum.</p>
+               <p>Odit porro optio, minus corporis accusantium! Animi error cupiditate incidunt distinctio quod reiciendis eaque, minus hic non. Dolorum praesentium vitae hic qui laudantium minus voluptatem, libero quos ea provident impedit!</p>
+               <p>Ullam quidem quisquam molestiae delectus temporibus quaerat eos eligendi! Tempore minus, modi quasi repellendus, quas similique iusto sint voluptate itaque suscipit impedit sit eaque consequuntur hic, cupiditate dignissimos error ipsa.</p>
+
+               {{ form_start(form, {'attr': {'id': 'form-job-subscription'}}) }}
+
+               <div class="form-group">
+                   <label class="form-control--label" for="none">
+                       <input name="none" id="none" type="checkbox">
+                       <span class="f-checkbox"></span>
+                       acceptez-vous cette condition ?
+                   </label>
+               </div>
+               <div class="form-group">
+                   {{ form_widget(form) }}
+                       <button class="button" type="submit">validé</button>
+                   {{ form_end(form) }}
+               </div>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-3 col-sm-push-1">
+                <h1>Lesser of Two Evils</h1>
+                <h2>Love's Labors Lost in Space</h2>
+                <ul>
+                <li>Why did you bring us here?</li>
+                <li>I've got to find a way to escape the horrible ravages of youth. Suddenly, I'm going to the bathroom like clockwork, every three hours. And those jerks at Social Security stopped sending me checks. Now 'I'' have to pay ''them'!</li>
+                </ul>
+                <h3>A Leela of Her Own</h3>
+                <p>You can crush me but you can't crush my spirit! Hi, I'm a naughty nurse, and I really need someone to talk to. $9.95 a minute. Bite my shiny metal ass.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

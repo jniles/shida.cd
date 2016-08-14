@@ -1,0 +1,12 @@
+behave==1.2.5
+click==6.6
+EasyProcess==0.2.2
+ordereddict==1.1
+parse==1.6.6
+parse-type==0.3.4
+python-dotenv==0.5.1
+PyVirtualDisplay==0.2
+robber==1.0.1
+selenium==2.53.5
+shell==1.0.1
+six==1.10.0

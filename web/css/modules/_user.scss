@@ -1,0 +1,210 @@
+.user__container {
+    float: right;
+    width: 40px;
+    height: 40px;
+    line-height: 60px;
+    margin: 10px 15px 0 15px;
+    position: relative;
+
+
+    border-radius: 50%;
+    background-color: $dark-color;
+    display: none;
+
+    @media only screen and (min-width: 768px) {
+        display: block;
+    }
+
+
+    @at-root &.as-notifications {
+
+        &::before {
+            border-radius: 50%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background-color: #f42b2d;
+            content: '';
+        }
+    }
+}
+
+
+.user__form-container {
+    width: 290px;
+    padding: 60px 15px 40px 15px;
+    margin: 0 auto;
+    box-shadow: 0 10px 45px rgba(#000, .2);
+    position: relative;
+    top: 60px;
+
+    .title {
+        margin: 0;
+        font-size: 18px;
+        color: #fff;
+        padding: 0 20px;
+        height: 50px;
+        line-height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: $blue-color;
+    }
+
+    @media only screen and (min-width: 768px) {
+        padding: 70px 20px 40px 20px;
+        width: 400px;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        padding: 80px 30px 40px 30px;
+        width: 500px;
+    }
+}
+
+.user__create-account {
+    width: 290px;
+    margin: 100px auto 0 auto;
+
+    @media only screen and (min-width: 768px) {
+        width: 400px;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        width: 500px;
+    }
+}
+
+.user__block {
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(#000, .15);
+    margin: 25px 0;
+    position: relative;
+
+    h2, h3, h4, h5, h6 {
+        font-size: 16px;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    // modifiers
+    @at-root &--success {
+        color: #fff;
+        background-color: #2ecc71;
+    }
+
+    @at-root &--danger {
+        color: #fff;
+        background-color: #e74c3c;
+    }
+
+    @at-root &--warning {
+        color: #fff;
+        background-color: #f1c40f;
+    }
+
+    @at-root &--info {
+        color: #fff;
+        background-color: #3498db;
+    }
+
+    .button--absolute {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+.user__config {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    .item {
+        white-space: nowrap;
+
+        a {
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            color: $dark-color;
+            text-decoration: none;
+            transition: all .3s;
+
+            i {
+                transition: all .3s;
+                color: $blue-color;
+                font-size: 28px;
+                padding: 0 25px 0 15px;
+            }
+
+            &:hover {
+                transition: all .3s;
+                color: #fff;
+                background-color: $blue-color;
+
+                i {
+                    transition: all .3s;
+                    color: #fff;
+                }
+            }
+
+        }
+    }
+}
+
+.user__info {
+    @include clearfix;
+    position: relative;
+    height: 220px;
+    position: relative;
+
+    background: #999 url(../img/user-bg.jpg) left top no-repeat;
+    background-size: cover;
+
+    .picture-container {
+        margin: 40px auto 0 auto;
+        opacity: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: rgba(#000, .7);
+    }
+
+    .button {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    @media only screen and (min-width: 800px) {
+        height: 280px;
+
+        .picture-container {
+            margin-top: 70px;
+        }
+    }
+}
+
+.user__info__content {
+    color: #fff;
+
+    .username, .email {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .username {
+        font-family: $secondary-font-family;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .email {
+        font-size: 13px;
+    }
+}

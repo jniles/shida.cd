@@ -1,0 +1,207 @@
+.timeline {
+    position: relative;
+}
+
+.timeline__section {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: #d0d0d0;
+    }
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: row;
+
+        &::before {
+            display: none;
+        }
+    }
+}
+
+.timeline__section__title {
+
+    h2, h3, h4 {
+        color: $brand-color;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    @media only screen and (min-width: 768px) {
+        position: relative;
+        width: 40%;
+
+        h2, h3, h4 {
+            font-size: 24px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            right: 2px;
+            top: 0;
+            bottom: 0;
+            background-color: #d0d0d0;
+        }
+    }
+}
+
+.timeline__section__items {
+    // defautl
+
+    @media only screen and (min-width: 768px) {
+        width: 60%;
+        padding-bottom: 90px;
+    }
+}
+
+.timeline__section__item {
+    margin-bottom: 70px;
+
+    .body {
+        position: relative;
+        padding-left: 15px;
+
+        span {
+            margin-top: 5px;
+            font-size: 14px;
+            display: block;
+        }
+
+        .title {
+            padding-top: 10px;
+            margin-top: 0;
+            font-size: 16px;
+            border-bottom: 1px solid #d0d0d0;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+                color: $brand-color;
+            }
+
+            a {
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: none;
+                    color: $brand-color;
+                }
+            }
+        }
+
+        .description {
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #d0d0d0;
+            left: -2px;
+            top: 6px;
+            z-index: 2;
+        }
+
+        &::after {
+            top: 0;
+            width: 20px;
+            height: 20px;
+            left: -8px;
+
+            background-color: #fff;
+            z-index: 1;
+        }
+    }
+
+    .picture-container {
+        display: none;
+    }
+
+
+    @media only screen and (min-width: 768px) {
+
+        position: relative;
+        padding: 0 20px;
+        margin-top: 80px;
+        margin-bottom: 30px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        .body {
+            position: relative;
+            padding: 0;
+            margin-right: 40px;
+
+            span {
+                margin-left: 10px;
+                margin-top: 0;
+                display: inline;
+            }
+
+            .title {
+                font-size: 18px;
+            }
+
+            &::before, &::after {
+                content: '';
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: #d0d0d0;
+                left: -28px;
+                top: 11px;
+            }
+
+            &::after {
+                top: 0;
+                width: 32px;
+                height: 32px;
+                left: -40px;
+
+                background-color: #fff;
+            }
+        }
+
+        .picture-container {
+            display: none;
+        }
+
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+        @include scut-clearfix;
+
+        .body {
+            float: left;
+            width: 55%;
+            margin-right: 45px;
+        }
+
+        .picture-container {
+            float: left;
+            display: block;
+            opacity: 0;
+            width: 125px;
+            height: 125px;
+
+            // @extend %box-shadow;
+            box-shadow: 0 10px 30px rgba(#000, .2);
+        }
+    }
+}

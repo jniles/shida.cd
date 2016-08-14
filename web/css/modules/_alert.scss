@@ -1,0 +1,130 @@
+.alert {
+    position: absolute;
+    top: 45px;
+    right: 25px;
+    z-index: 200;
+    color: $dark-color;
+    background-color: #fff;
+
+    width: 240px;
+    box-shadow: 0 10px 45px rgba(#000, .15);
+
+    @include clearfix;
+
+    @media only screen and (min-width: 800px) {
+        right: 45px;
+        width: 320px;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        right: 100px;
+    }
+
+
+    // direct childs
+    .control {
+        float: right;
+        display: inline-block;
+        text-decoration: none;
+        background-color: #fff;
+        height: 35px;
+        line-height: 35px;
+        color: $brand-color;
+        padding: 0 15px;
+        transition: all .3s;
+
+        i {
+            font-size: 16px;
+        }
+
+        &:hover {
+            background-color: $brand-color;
+            color: #fff;
+            text-decoration: none;
+            transition: all .3s;
+        }
+    }
+
+    .content {
+        @include clearfix;
+        padding: 15px;
+
+        h4, h5, h6 {
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            margin-top: 0;
+            padding-top: 0;
+            font-size: 13px;
+        }
+    }
+
+
+    // modifiers
+    @at-root &--success {
+        color: #fff;
+        background-color: #2ecc71;
+
+        // direct childs
+       .control {
+            background-color: #2ecc71;
+            color: #fff;
+
+            i {
+                font-size: 16px;
+            }
+
+            &:hover {
+                background-color: darken(#2ecc71, 6%);
+            }
+        }
+    }
+
+    @at-root &--danger {
+        color: #fff;
+        background-color: #e74c3c;
+
+         // direct childs
+        .control {
+            background-color: #e74c3c;
+            color: #fff;
+
+            &:hover {
+                background-color: darken(#e74c3c, 6%);
+            }
+        }
+    }
+
+    @at-root &--warning {
+        color: #fff;
+        background-color: #f1c40f;
+
+         // direct childs
+        .control {
+            background-color: #f1c40f;
+            color: #fff;
+
+            &:hover {
+                background-color: darken(#f1c40f, 6%);
+            }
+        }
+    }
+
+    @at-root &--info {
+        color: #fff;
+        background-color: #3498db;
+
+         // direct childs
+        .control {
+            background-color: #3498db;
+            color: #fff;
+
+            &:hover {
+                background-color: darken(#3498db, 6%);
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "lerecruteur",
+  "version": "0.1.0",
+  "homepage": "https://github.com/gorvelyfab/lerecruteur",
+  "authors": [
+    "Gorvely Tasinda <gorvelyfab@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Ionicons": "ionicons#~2.0.1",
+    "animate.css": "https://github.com/daneden/animate.css.git#~3.4.0",
+    "bootstrap-sass": "~3.3.5",
+    "imgLiquid": "https://github.com/karacas/imgLiquid.git#~0.9.944",
+    "normalize.css": "~3.0.3",
+    "select2-skins": "~1.0.1"
+  },
+  "devDependencies": {
+    "scut": "~1.1.3"
+  }
+}

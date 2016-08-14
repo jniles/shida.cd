@@ -1,0 +1,96 @@
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_layout.html.twig' %}
+
+{% block base_layout %}
+    <div class="site-layout">
+        <div class="a">
+            <div class="row">
+                <div data-job data-id="{{ vm.id }}" class="col-xs-12 col-md-10">
+                    <h2>détail du offre <span class="text-grey">"{{ block('title') }}"</span> <span class="text-mini"><a href="{{ path('advertiser_jobs_edit', {'id': vm.id}) }}">éditer</a></span></h2>
+
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td>publier le {{ vm.createdAt|date('d M Y') }}</td>
+                            </tr>
+                            <tr>
+                                <td class="table__block-row"><a href="#job-users-subscribes">personnes souscri <span class="fab-label fab-label--info">{{ vm.subscriptions.collections|length }}</span></a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Competences requises</span>
+                                    <ul>
+                                        {% for skill in vm.skills.collections %}
+                                            <li>{{ skill.name }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Catégories</span>
+                                    <ul>
+                                        {% for category in vm.subCategories.collections %}
+                                            <li>{{ category.name }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Description</span>
+                                    <p>{{ vm.summary }}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <hr style="margin-top:150px">
+                    <h3 id="job-users-subscribes">Personnes souscris</h3>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>nom complet</th>
+                                <th>accepté ?</th>
+                                <th>action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for subscription in vm.subscriptions.collections %}
+                                <tr data-applicants data-id="{{ subscription.id }}">
+                                    <td>
+                                        <a href="{{ path('advertiser_users_show', {'username': subscription.user.username, 'subscription_id': subscription.id}) }}">{{ subscription.user.fullName }}</a>
+                                    </td>
+                                    <td>
+                                        {% if subscription.accept %}
+                                            <span class="fab-label fab-label--success">oui</span>
+                                        {% else %}
+                                            <span class="fab-label fab-label--danger">non</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('advertiser_users_show', {'username': subscription.user.username, 'subscription_id': subscription.id}) }}">voir</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div style="height:100px"></div>
+                </div>
+                <div class="col-xs-12 col-md-2">
+                    {{ form_start(delete_form, {'attr': {'id': 'form-job-delete'}}) }}
+                    {{ form_widget(delete_form) }}
+                    <button class="button button--danger button--no-shadow">Supprimer</button>
+                    {{ form_end(delete_form) }}
+                </div>
+            </div>
+        </div> <!-- /.a -->
+
+        <div class="b">
+            {% include 'FOSUserBundle:sidebar:b.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% block title %}{{ vm.pageTitle }}{% endblock %}
+
+{% extends '::base_layout.html.twig' %}
+
+{% block base_layout %}
+    {{ render(controller('KoopaJobBundle:JobSearch:keyword', {'template': 'default'})) }}
+    <div class="container">
+        <h3 class="last-job__title">Les derniers offres publiers</h3>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <div class="data-index__container">
+                    {% for job in vm.collections %}
+                        <div data-jobs data-slug="{{ job.slug }}" class="data-index__item">
+                            <div class="group-title">
+                                <div class="picture-container">
+                                    {% if job.user.image %}
+                                        <img src="{{ asset(job.user.image.src) }}" alt="">
+                                    {% else %}
+                                        <img src="{{ gravatar(job.user.email, 45) }}" alt="" />
+                                    {% endif %}
+                                </div>
+                                <p class="entity-name">
+                                    <a href="#">Par {{ job.user.username }}</a>
+                                    <span>
+                                        | {{ job.createdAt|date('d M Y') }}
+                                    </span>
+                                </p>
+                            </div>
+                            <a href="{{ path('jobs_show', {'slug': job.slug}) }}" class="button">Voir <i class="ion-ios-arrow-forward"></i></a>
+                            <div class="content">
+                                <p><a href="{{ path('jobs_show', {'slug': job.slug}) }}">
+                                    {{ job.title }} <br>
+                                    {{ job.summary|truncate(100, true) }}
+                                </a></p>
+                            </div>
+                        </div> <!-- ./data-index__item -->
+                    {% endfor %}
+                </div>
+
+                {{ knp_pagination_render(pagination) }}
+            </div>
+
+
+            <div class="col-xs-12 col-sm-3 col-sm-push-1">
+                {{ render(controller('KoopaAppBundle:Page:sidebar')) }}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
