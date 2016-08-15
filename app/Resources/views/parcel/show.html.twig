@@ -7,7 +7,7 @@
         <div class="a">
             <div class="row">
                 <div data-parcel data-id="{{ parcel.id }}" class="col-xs-12 col-md-10">
-                    <h2>détails de la parcelle <span class="text-grey">"{{ block('title') }}"</span> <span class="text-mini"><a href="{{ path('immoffreur_parcels_edit', {'id': parcel.id}) }}">éditer</a></span></h2>
+                    <h2>détails de la parcelle <span class="text-grey">"{{ block('title') }}"</span></h2>
 
                     <table class="table table-striped">
                         <tbody>
@@ -38,17 +38,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-xs-12 col-md-2">
-                    {{ form_start(delete_form, {'attr': {'id': 'form-job-delete'}}) }}
-                    {{ form_widget(delete_form) }}
-                    <button class="button button--danger button--no-shadow">Supprimer</button>
-                    {{ form_end(delete_form) }}
-                </div>
             </div>
         </div> <!-- /.a -->
 
         <div class="b">
-            {% include 'FOSUserBundle:sidebar:b.html.twig' %}
+            {% include 'FOSUserBundle:sidebar:c.html.twig' %}
         </div>
     </div>
 {% endblock %}

@@ -22,11 +22,13 @@ class AppKernel extends Kernel
             new Koopa\Bundle\JobBundle\KoopaJobBundle(),
 
             // dependencies
+            // new JMS\SerializerBundle\JMSSerializerBundle(),
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new FOS\ElasticaBundle\FOSElasticaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,0 +1,50 @@
+{% block title %}{{ records | length }} Resultat trouver{% endblock %}
+
+{% extends '::base_layout.html.twig' %}
+
+{% block base_layout %}
+    {# Search Search Search #}
+    {# {{ render(controller('KoopaJobBundle:JobSearch:keyword', {'template': 'default'})) }} #}
+
+
+    <div class="container">
+        <h2>Le resultat de votre recherche</h2>
+        <form class="row" action="{{ path('search') }}" method="GET">
+            <div class="panel panel-defautl">
+                <div class="col-xs-12 col-sm-10">
+                    <div class="form-group">
+                        <input name="q" type="text" class="form-control" value="{{ q }}">
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-2">
+                    <div class="form-group">
+                        <button class="button">Rechercher</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <div style="height:45px"></div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <table class="table">
+                    <tbody>
+                        {% for record in records %}
+                            <tr>
+                                <td>{{ record }} <a href="{{ record.url }}">afficher</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-xs-12 col-sm-3 col-sm-push-1">
+                {{ render(controller('KoopaAppBundle:Page:sidebar')) }}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

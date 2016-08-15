@@ -59,12 +59,12 @@
 }
 
 .menu--colored {
-    background-color: rgba($brand-color, .98);
+    background-color: rgba($dark-color, .98);
     @extend %box-shadow;
 
     .menu__logo {
         img {
-            width: 33px;
+            width: 110px;
             height: auto;
         }
 
@@ -208,6 +208,20 @@ a.base-menu__side-start {
     @media only screen and (min-width: 768px) {
         // font-size: 11px;
         // text-transform: uppercase;
+        display: block;
+        margin: 10px 15px 0 15px;
+        float: right;
+
+        &:hover {
+            background-color: rgba(#fff, .3);
+        }
+    }
+}
+
+.button--poster {
+    display: none;
+
+    @media only screen and (min-width: 768px) {
         display: block;
         margin: 10px 15px 0 15px;
         float: right;

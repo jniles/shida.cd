@@ -13,6 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Koopa\Bundle\JobBundle\Entity\Parcel;
+use Koopa\Bundle\JobBundle\Entity\Address;
 
 /**
  * Class ParcelController
@@ -78,20 +79,11 @@ class ParcelController extends Controller
      * @Route("/{id}", name="immoffreur_parcels_show", requirements={"id"="\d+"})
      * @Method("GET")
      */
-    public function showAction($id)
+    public function showAction(Parcel $parcel)
     {
-        $repository = $this->getDoctrine()->getRepository(Parcel::class);
-        $parcel = $repository->get($id);
-
-        dump($parcel);
-        die();
-
         $vm = new \stdClass();
         $vm->pageTitle = 'Parcelle';
         $deleteForm = $this->createDeleteForm($parcel);
-
-        dump($parcel);
-        die();
 
         return $this->render('immoffreur/parcel/show.html.twig', array(
             'vm' => $vm,
@@ -110,7 +102,6 @@ class ParcelController extends Controller
     public function editAction(Request $request, Parcel $parcel)
     {
         $editForm = $this->createForm(ParcelType::class, $parcel);
-        $editForm->remove('active');
         $deleteForm = $this->createDeleteForm($parcel);
         $editForm->handleRequest($request);
 
@@ -120,14 +111,17 @@ class ParcelController extends Controller
 
             $this->get('session')->getFlashBag()->add('success', 'Parcel has been updated.');
 
-            return $this->redirectToRoute('immoffreur_parcels_show', array('slug' => $parcel->getSlug()));
+            return $this->redirectToRoute('immoffreur_parcels_show', array('id' => $parcel->getId()));
         }
 
-        $vm = $this->get('job_view_job_assembler')->create($parcel, 'edit');
-        return $this->render('immoffreur/Parcel/edit.html.twig', array(
-            'edit_form' => $editForm->createView(),
+        $vm = new \stdClass();
+        $vm->pageTitle = 'Parcelle';
+
+        return $this->render('immoffreur/parcel/edit.html.twig', array(
+            'form' => $editForm->createView(),
             'vm' => $vm,
             'delete_form' => $deleteForm->createView(),
+            'parcel' => $parcel
         ));
     }
 

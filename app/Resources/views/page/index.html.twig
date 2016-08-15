@@ -7,7 +7,8 @@
 {% block body %}
     <nav id="base-menu" class="menu">
         <a href="{{ path('pages_index') }}" class="menu__logo">
-            <span>Shida.cd</span>
+            <img width="150px" src="{{ asset('img/Logo-Shida.png') }}" alt="">
+            {# <span>Shida.cd</span> #}
         </a>
 
         <div class="menu__items">
@@ -24,6 +25,7 @@
             <span class="b"></span>
             <span class="c"></span>
         </a>
+        <a href="#" class="button button--poster">Postez une offre</a>
         {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
             <a href="{{ path('fos_user_security_login') }}" class="button button--login">se connecter</a>
         {% else %}
@@ -41,10 +43,11 @@
 
 
     <header id="base-header" class="header">
+        <img class="header__logo" src="{{ asset('img/Logo-Shida.png') }}" alt="">
         {{ render(controller('KoopaJobBundle:JobSearch:keyword', {'template': 'homepage'})) }}
 
         <a class="header__last-job-link" href="#lastet-job">
-            <span>Dernier offres publier</span>
+            <span>Dernieres offres publiees</span>
             <i class="ion-chevron-down"></i>
         </a>
     </header>
@@ -52,7 +55,7 @@
 
     <div class="last-job">
         <div class="container">
-            <h2 id="lastet-job" class="title">Dernier offres publier</h2>
+            <h2 id="lastet-job" class="title">Dernieres publications</h2>
         </div>
     </div>
 

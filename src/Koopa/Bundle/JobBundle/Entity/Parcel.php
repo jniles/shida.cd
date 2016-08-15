@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Parcel
  *
- * @ORM\Table(name="parcel")
+ * @ORM\Table(name="app_parcel")
  * @ORM\Entity(repositoryClass="Koopa\Bundle\JobBundle\Repository\ParcelRepository")
  */
 class Parcel
@@ -55,7 +55,6 @@ class Parcel
      */
     private $houses;
 
-
     /**
      * @var User
      *
@@ -64,14 +63,32 @@ class Parcel
     private $author;
 
     /**
-     * @var Address
+     * @var string
      *
-     * @ORM\OneToOne(
-     *     targetEntity="Koopa\Bundle\JobBundle\Entity\Address",
-     *     cascade={"persist", "remove"}
-     *  )
+     * @ORM\Column(name="city", type="string", length=255)
      */
-    private $address;
+    private $city;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", length=255)
+     */
+    private $street;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commune", type="string", length=255)
+     */
+    private $commune;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="quarter", type="string", length=255)
+     */
+    private $quarter;
 
 
     /**
@@ -249,5 +266,133 @@ class Parcel
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return Parcel
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set street
+     *
+     * @param string $street
+     *
+     * @return Parcel
+     */
+    public function setStreet($street)
+    {
+        $this->street = $street;
+
+        return $this;
+    }
+
+    /**
+     * Get street
+     *
+     * @return string
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    /**
+     * Set commune
+     *
+     * @param string $commune
+     *
+     * @return Parcel
+     */
+    public function setCommune($commune)
+    {
+        $this->commune = $commune;
+
+        return $this;
+    }
+
+    /**
+     * Get commune
+     *
+     * @return string
+     */
+    public function getCommune()
+    {
+        return $this->commune;
+    }
+
+    /**
+     * Set quarter
+     *
+     * @param string $quarter
+     *
+     * @return Parcel
+     */
+    public function setQuarter($quarter)
+    {
+        $this->quarter = $quarter;
+
+        return $this;
+    }
+
+    /**
+     * Get quarter
+     *
+     * @return string
+     */
+    public function getQuarter()
+    {
+        return $this->quarter;
+    }
+
+    public function convert()
+    {
+        $data = [];
+        $data['houseNumber'] = $this->houseNumber;
+        $data['forSale'] = $this->forSale;
+        $data['description'] = $this->description;
+        $data['city'] = $this->city;
+        $data['street'] = $this->street;
+        $data['commune'] = $this->commune;
+        $data['quarter'] = $this->quarter;
+
+        return $data;
+    }
+
+    public function __toString()
+    {
+        return sprintf(
+            "Parcelle avec %s maisons, dans la ville de %s, commune %s/Q %s  avenue %s \n \n",
+            $this->houseNumber,
+            $this->city,
+            $this->commune,
+            $this->quarter,
+            $this->street,
+            $this->description
+        );
+    }
+
+    public function url()
+    {
+        return 'p/'.$this->id;
     }
 }

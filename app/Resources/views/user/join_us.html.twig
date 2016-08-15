@@ -5,49 +5,47 @@
 {% block base_layout %}
     <div class="container">
         <div class="site__header">
-            <div class="picture-container picture-container--no-margin">
-                <img src="{{ asset('img/6.jpg') }}" alt="">
+            <div class="text-center">
+                <img width="450px" src="{{ asset('img/6.jpg') }}" alt="">
             </div>
 
-            <h2 class="title">Choisissez le type de votre compte</h2>
+            <div class="text-center">
+                <h2>Choisissez le type de votre compte</h2>
+            </div>
+
         </div>
 
+        <div class="row ">
+            <div class="col-xs-12 col-md-6 bg_compte">
+                <h3>Publicateur d'emploi</h3>
+                <a href="{{ path('users_signin') }}?_as=advertiser" class="panel_compte" style="margin-top: 20px;">
+                    <i class="ion-person" style="font-size:100px; margin-left:45px;" aria-hidden="true"></i>
+                </a>
+
+            </div>
+            <div class="col-xs-12 col-md-6 bg_compte">
+                <h3>Publicateur immobilier</h3>
+                <a href="{{ path('users_signin') }}?_as=immo" class="panel_compte" style="margin-top: 20px;">
+                    <i class="ion-person" style="font-size:100px; margin-left:45px;" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+
+        <hr>
+
         <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <h4>pour un chercher d'emploi</h4>
-
-                <p>
-                    en souscrivant en tant que candidat vous
-                    aurez la possibilite d'avoir acces a la liste
-                    de publication de different offres
-                </p>
-
-                <p>
-                    ainsi que la possibilite de postiler, si jamais
-                    vous trouvez un travail qui vous interesse.
-                </p>
-
-                <p>
-                    <a class="button" id="signin-as-applicant" href="{{ path('users_signin') }}?_as=applicant">candidat </a>
-                </p>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <h4>pour un chercher d'emploi</h4>
-
-                <p>
-                    Reserver aux employeurs,
-                    vous devez etre une entite existante pour tirer
-                    profit de ce type de compte.
-                </p>
-
-                <p>
-                    car il vous permettra de publier facilement des offres d'emploi
-                </p>
-
-                <p class="tb-margin">
-                    <a class="button" id="signin-as-advertiser" href="{{ path('users_signin') }}?_as=advertiser">annonceur </a>
-                </p>
-            </div>
+            <div class="col-xs-12 col-md-6 bg_compte">
+                 <h3>Acteur du marcher</h3>
+                 <a href="{{ path('users_signin') }}?_as=all" class="panel_compte" style="margin-top: 20px;">
+                     <i class="ion-person" style="font-size:100px; margin-left:45px;" aria-hidden="true"></i>
+                 </a>
+             </div>
+             <div class="col-xs-12 col-md-6 bg_compte">
+                 <h3>Demandeur d'emploi</h3>
+                 <a href="{{ path('users_signin') }}?_as=applicant" class="panel_compte" style="margin-top: 20px;">
+                     <i class="ion-person" style="font-size:100px; margin-left:45px;" aria-hidden="true"></i>
+                 </a>
+             </div>
         </div>
     </div>
 {% endblock %}

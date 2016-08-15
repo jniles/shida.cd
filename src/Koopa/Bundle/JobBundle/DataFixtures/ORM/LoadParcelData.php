@@ -7,7 +7,6 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Koopa\Bundle\JobBundle\Entity\Parcel;
 use Koopa\Bundle\JobBundle\Entity\House;
-use Koopa\Bundle\JobBundle\Entity\Address;
 use FOS\UserBundle\Doctrine\UserManager;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -46,13 +45,6 @@ class LoadParcelData implements FixtureInterface, ContainerAwareInterface, Order
     public function load(ObjectManager $manager)
     {
         $user = $this->userManager->findUserByUsername('dieu');
-        $address = new Address();
-        $address
-            ->setCity('Kinshasa')
-            ->setStreet('ngele')
-            ->setCommune('Lingwala')
-            ->setQuarter('Pakadjuma')
-        ;
 
         $house = new House();
         $house
@@ -66,9 +58,12 @@ class LoadParcelData implements FixtureInterface, ContainerAwareInterface, Order
 
         $parcel = new Parcel();
         $parcel
+            ->setCity('Kinshasa')
+            ->setStreet('ngele')
+            ->setCommune('Lingwala')
+            ->setQuarter('Pakadjuma')
             ->setHouseNumber(5)
             ->setDescription('ceci est une description creer par Dieu')
-            ->setAddress($address)
             ->addHouse($house)
             ->setAuthor($user)
         ;

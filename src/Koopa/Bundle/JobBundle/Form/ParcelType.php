@@ -22,7 +22,10 @@ class ParcelType extends AbstractType
             ->add('houseNumber', IntegerType::class)
             ->add('forSale', CheckboxType::class)
             ->add('description', TextareaType::class)
-            ->add('address', AddressType::class)
+            ->add('city', TextType::class)
+            ->add('street', TextType::class)
+            ->add('commune', TextType::class)
+            ->add('quarter', TextType::class)
         ;
     }
 

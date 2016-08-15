@@ -1,6 +1,6 @@
 {
-    "name": "gorvely/lerecruteur.cd",
-    "license": "proprietary",
+    "name": "shida/shida",
+    "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.5.9",
@@ -22,7 +22,8 @@
         "twig/extensions": "^1.3",
         "knplabs/knp-paginator-bundle": "^2.5",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "friendsofsymfony/elastica-bundle": "^3.2"
+        "friendsofsymfony/elastica-bundle": "^3.2",
+        "jms/serializer-bundle": "^1.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

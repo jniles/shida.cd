@@ -1,8 +1,8 @@
 .footer {
-  margin-top: 100px;
+  // margin-top: 100px;
   @include clearfix;
   padding: 40px 0 25px 0;
-  min-height: 400px;
+  min-height: 150px;
   background-color: $dark-color;
   border-bottom: 6px solid $brand-color;
   color: #fff;

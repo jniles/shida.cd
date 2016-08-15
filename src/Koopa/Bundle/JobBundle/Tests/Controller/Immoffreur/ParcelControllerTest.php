@@ -50,11 +50,11 @@ class ParcelControllerTest extends WebTestCase
             [
                 'parcel[houseNumber]' => '3',
                 'parcel[description]' => 'hello maison description',
-                'parcel[address][city]' => 'Kinshasa',
-                'parcel[address][street]' => 'foo street',
-                'parcel[address][commune]' => 'bar commmune',
-                'parcel[address][quarter]' => 'Q42',
-                'parcel[address][city]' => 'Kinshasa',
+                'parcel[city]' => 'Kinshasa',
+                'parcel[street]' => 'foo street',
+                'parcel[commune]' => 'bar commmune',
+                'parcel[quarter]' => 'Q42',
+                'parcel[city]' => 'Kinshasa',
             ]
         );
 
@@ -107,7 +107,7 @@ class ParcelControllerTest extends WebTestCase
 
         $this->assertEquals(Response::HTTP_OK, self::$client->getResponse()->getStatusCode());
 
-        $form = $crawler->filter('form#form-job')->form([
+        $form = $crawler->filter('form#form-parcel')->form([
             'parcel[description]'  => 'super foo description',
         ]);
 

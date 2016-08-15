@@ -599,4 +599,32 @@ class Job
     {
         return $this->active;
     }
+
+    public function convert()
+    {
+        $data = [];
+        $data['title'] = $this->title;
+        $data['slug'] = $this->slug;
+        $data['createdAt'] = $this->createdAt;
+        $data['summary'] = $this->summary;
+        $data['paymentMethod'] = $this->paymentMethod;
+        $data['salary'] = $this->salary;
+        $data['experience'] = $this->experience;
+
+        return $data;
+    }
+
+    public function __toString()
+    {
+        return sprintf(
+            'Offre %s %s',
+            $this->title,
+            $this->summary
+        );
+    }
+
+    public function url()
+    {
+        return sprintf('jobs/%s', $this->slug);
+    }
 }

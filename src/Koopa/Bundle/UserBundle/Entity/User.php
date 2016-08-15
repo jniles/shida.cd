@@ -388,4 +388,31 @@ class User extends BaseUser
     {
         return $this->parcels;
     }
+
+    public function convert()
+    {
+        $data = [];
+        $data['username'] = $this->username;
+        $data['email'] = $this->email;
+        $data['firstname'] = $this->firstname;
+        $data['lastname'] = $this->lastname;
+        $data['gender'] = $this->gender;
+
+        return $data;
+    }
+
+    public function __toString()
+    {
+        return sprintf(
+            'Personne %s %s %s',
+            $this->username,
+            $this->firstname,
+            $this->lastname
+        );
+    }
+
+    public function url()
+    {
+        return '';
+    }
 }

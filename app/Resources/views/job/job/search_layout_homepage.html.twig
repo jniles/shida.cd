@@ -1,25 +1,17 @@
 <div class="base-search">
-    <form action="{{ path('jobs_search_index') }}" method="GET">
-        <h6 class="title">Trouvez un travail</h6>
+    <form action="{{ path('search') }}" method="GET">
+        <h6 class="title">Trouvez un shida</h6>
 
         <div class="form-group">
-            <p class="placeholder">Quoi ?</p>
-            <select name="categories[]" multiple class="site-select2">
-                {% for category in categories %}
-                    <option value="{{ category.name }}">{{ category.name }}</option>
-                {% endfor %}
-            </select>
-            <span class="placeholder">exemple: {{ categories[0].name|default('') }}, {{ categories[1].name|default('')}}</span>
+            <p class="placeholder">Quel shida ?</p>
+            <input name="q" style="color:#fff" type="text" class="form-control">
+            <span class="placeholder">Exemple: Chauffeur, Developpeur, le prix de...</span>
         </div>
 
         <div class="form-group">
             <p class="placeholder">Ou ?</p>
-            <select name="locations[]" multiple class="site-select2">
-                {% for location in locations %}
-                    <option value="{{ location.town }}">{{ location.town }}</option>
-                {% endfor %}
-            </select>
-            <span class="placeholder">exemple: {{ locations[0].town|default('') }}, {{ locations[1].town|default('') }}</span>
+            <input name="l" style="color:#fff" type="text" class="form-control">
+            <span class="placeholder">Exemple: {{ locations[0].town|default('') }}, {{ locations[1].town|default('') }}</span>
         </div>
 
         <div class="form-group form-group--last">

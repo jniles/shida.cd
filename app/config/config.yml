@@ -87,3 +87,66 @@ knp_paginator:
     template:
         pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+
+
+# FOSElasticaSearch
+fos_elastica:
+    clients:
+        default: { host: localhost, port: 9200 }
+    indexes:
+        serializer: ~
+        app:
+          finder: ~
+          types:
+            user:
+              mappings:
+                username: ~
+                firstName: ~
+                lastName: ~
+                email: ~
+              persistence:
+                driver: orm
+                model: Koopa\Bundle\UserBundle\Entity\User
+                provider: ~
+                listener: ~
+                finder: ~
+            parcel:
+              mappings:
+                houseNumber: ~
+                description: ~
+                city: ~
+                street: ~
+                commune: ~
+                quarter: ~
+              persistence:
+                driver: orm
+                model: Koopa\Bundle\JobBundle\Entity\Parcel
+                provider: ~
+                listener: ~
+                finder: ~
+            job:
+              mappings:
+                title: ~
+                summary: ~
+                paymentMethod: ~
+                salary: ~
+                experience: ~
+                skills:
+                  type: 'nested'
+                  properties:
+                    name: ~
+                locations:
+                  type: 'nested'
+                  properties:
+                    country: ~
+                    town: ~
+                subCategories:
+                  type: 'nested'
+                  properties:
+                    name: ~
+              persistence:
+                driver: orm
+                model: Koopa\Bundle\JobBundle\Entity\Job
+                provider: ~
+                listener: ~
+                finder: ~

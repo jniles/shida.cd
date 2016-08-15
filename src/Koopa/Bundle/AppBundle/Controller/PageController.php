@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Serializer;
 
 class PageController extends Controller
 {
@@ -69,5 +70,25 @@ class PageController extends Controller
     public function sidebarAction()
     {
         return $this->render('page/sidebar.html.twig');
+    }
+
+    /**
+     * Result page
+     *
+     * @Route("/search", name="search")
+     * @Method("GET")
+     */
+    public function searchAction(Request $request)
+    {
+        $q = $request->get('q', false);
+        $q .= ' ' . $request->get('l', false);
+        $finder = $this->get('fos_elastica.finder.app');
+        $result = [];
+
+        if ($q) {
+            $result = $finder->find($q);
+        }
+
+        return $this->render('page/result.html.twig', ['records' => $result, 'q' => $q]);
     }
 }
